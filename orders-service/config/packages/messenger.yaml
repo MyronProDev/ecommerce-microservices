@@ -1,0 +1,26 @@
+framework:
+  messenger:
+    serializer:
+      default_serializer: messenger.transport.symfony_serializer
+      symfony_serializer:
+        format: json
+        context: { }
+    transports:
+      events_amqp:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'  # e.g. amqp://guest:guest@rabbitmq:5672/%2f
+        options:
+          exchange:
+            name: orders.events
+            type: topic
+          queues:
+            orders.events: ~
+    routing:
+      App\Message\EventMessageInterface: events_amqp
+
+# when@test:
+#    framework:
+#        messenger:
+#            transports:
+#                # replace with your transport name here (e.g., my_transport: 'in-memory://')
+#                # For more Messenger testing tools, see https://github.com/zenstruck/messenger-test
+#                async: 'in-memory://'
