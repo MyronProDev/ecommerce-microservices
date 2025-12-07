@@ -1,0 +1,33 @@
+# Symfony-specific
+/var
+/vendor
+/.env.local
+/.env.*.local
+
+# Node/Yarn (if using Webpack Encore)
+node_modules
+npm-debug.log
+yarn-error.log
+.yarn-cache
+
+# Git & VCS
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+.dockerignore
+
+# IDEs
+*.iml
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Tests & coverage
+phpunit.xml
+.phpunit.result.cache
+coverage/
